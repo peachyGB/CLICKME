@@ -1,30 +1,32 @@
-import React from 'react';
+import React from "react";
 
-function Button({seconds, click, onClick, buttonStop, handleReset}) {
-
+function Button({ seconds, click, onClick, buttonStop, handleReset }) {
   return (
     <div className="backgroundContainer">
       <div className="clickerGameContainer">
-        <h1>-TIMER-</h1>
+        <h1>- TIMER -</h1>
         <div className="timer">{seconds}</div>
-          <button type="button" disabled={buttonStop} className="clickerButton" onClick={onClick}>
-            <span className="buttonText">CLICKER</span>
+        <button
+          type="button"
+          disabled={buttonStop}
+          className="clickerButton"
+          onClick={onClick}
+        >
+          CLICK ME!
+        </button>
+        <div className="counter">
+          <span>COUNT</span>
+          <br></br>
+          {click}
+        </div>
+        {seconds === 0 ? (
+          <button className="resetButton" onClick={handleReset}>
+            <span className="resetButtonText">PLAY AGAIN</span>
           </button>
-          <div className="counter">
-              <span>COUNTER</span>
-              <br></br>
-              {click}
-          </div>
-          {seconds === 0 ? (
-          <button className="resetButton" onClick={handleReset} >
-              <span className="resetButtonText">PLAY AGAIN</span>
-          </button>
-          ) : (
-          null
-          )}
+        ) : null}
       </div>
     </div>
   );
-};
+}
 
 export default Button;
